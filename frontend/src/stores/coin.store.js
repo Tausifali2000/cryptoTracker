@@ -18,11 +18,17 @@ export const useCoinStore = create((set) => ({
     try {
       
       const response = await axiosInstance.get(API_PATHS.DASHBOARD.FETCH_COINS);
-      set({ coins: response.data,  fetchingCoins: false });
+      
+      const coinsData = Array.isArray(response.data) 
+      ? response.data 
+      : response.data?.data || []; // Common pattern { data: [], ... }
+    
+    set({ coins: coinsData, fetchingCoins: false });
     
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error);
       set({
+        coins: [],
         fetchingCoins: false,
         error: error.response?.data?.message || "Failed to load dashboard"
       });
