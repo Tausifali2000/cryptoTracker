@@ -37,7 +37,7 @@ const Market = () => {
         </div>
       ) : (
         <ul className="grid gap-2 overflow-x-hidden  px-4 py-4">
-          {coins?.slice(0, 5).map((coin) => {
+          {(coins || []).slice(0, 5).map((coin) => {
             const {
               name,
               market_cap,

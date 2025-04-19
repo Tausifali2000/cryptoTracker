@@ -38,7 +38,7 @@ const Dashboard = () => {
         </div>
   
         <div className="marketcap">
-          {/* <Movers /> */}
+           <Movers /> 
         </div>
   
         <div className="chart">

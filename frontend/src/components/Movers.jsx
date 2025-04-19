@@ -20,7 +20,7 @@ const Movers = () => {
   const renderCoinList = (movers) => (
     <ul className=" grid gap-2 overflow-x-hidden  px-4 py-4">
       
-      {movers?.slice(0, 20).map((mover) => {
+      {(movers || []).slice(0, 20).map((mover) => {
         const {
           name,
         
