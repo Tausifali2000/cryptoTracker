@@ -46,7 +46,7 @@ export const getCoinMarkets = async (req, res) => {
       {
         headers: {
           accept: 'application/json',
-          'x-cg-demo-api-key': process.env.COINGECKO_API_KEY, 
+          'x-cg-api-key': process.env.COINGECKO_API_KEY, 
         },
         params: {
           vs_currency: req.query.vs_currency || 'usd',
@@ -70,7 +70,7 @@ export const getTopMovers = async (req, res) => {
     const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
       headers: {
         accept: 'application/json',
-        'x-cg-demo-api-key': process.env.COINGECKO_API_KEY,
+        'x-cg-api-key': process.env.COINGECKO_API_KEY,
       },
       params: {
         vs_currency: 'usd',
@@ -105,7 +105,7 @@ export const getCoinById = async (req, res) => {
       {
         headers: {
           accept: 'application/json',
-          'x-cg-demo-api-key': process.env.COINGECKO_API_KEY,
+          'x-cg-api-key': process.env.COINGECKO_API_KEY,
         }
       }
     );
