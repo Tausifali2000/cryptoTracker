@@ -7,18 +7,21 @@ import SearchBar from "../components/SearchBar"
 import Volume from "../components/Volume"
 import { useChartStore } from "../stores/chart.store"
 import { useCoinStore } from "../stores/coin.store"
+import { useMoversStore } from "../stores/movers.store"
 
 const Dashboard = () => {
 
     const { fetchCoins, fetchingCoins} = useCoinStore();
   
     const { fetchChartData} = useChartStore()
+    const {fetchMovers} = useMoversStore()
 
   
   
     useEffect(() => {
       fetchCoins();
-    }, [fetchCoins]);
+      fetchMovers()
+    }, []);
   
     if (fetchingCoins) {
       return (

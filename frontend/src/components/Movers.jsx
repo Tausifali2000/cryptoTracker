@@ -9,20 +9,18 @@ const Movers = () => {
   const { fetchChartData } = useChartStore();
   const { setSelectedCoin } = useCoinStore()
 
-  useEffect(() => {
-    fetchMovers();
-  }, []);
 
 
-  const handleSelection = async (coin) => {
-    await setSelectedCoin(coin);
+  const handleSelection = async (mover) => {
+    await setSelectedCoin(mover);
     fetchChartData();
 
   };
 
-  const renderCoinList = (coins) => (
+  const renderCoinList = (movers) => (
     <ul className=" grid gap-2 overflow-x-hidden  px-4 py-4">
-      {coins?.slice(0, 20).map((coin) => {
+      
+      {movers?.slice(0, 20).map((mover) => {
         const {
           name,
         
@@ -31,12 +29,12 @@ const Movers = () => {
           id,
           price_change_percentage_24h,
           current_price,
-        } = coin;
+        } = mover;
 
         return (
           <li
             key={id}
-            onClick={() => handleSelection(coin)}
+            onClick={() => handleSelection(mover)}
             className="flex cursor-pointer justify-between rounded-md px-4 py-4 duration-300 ease-in-out hover:bg-accent/40"
           >
             <div className="flex items-center gap-4">
