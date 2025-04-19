@@ -1,5 +1,5 @@
 
-export const BASE_URL = "http://localhost:5000/api/coins"
+export const BASE_URL = "https://cryptotracker-0qr5.onrender.com/"
 
 
 export const API_PATHS = {
