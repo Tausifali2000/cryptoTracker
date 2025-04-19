@@ -16,6 +16,11 @@ export const useChartStore = create((set, get) => ({
     const { selectedCoin } = useCoinStore.getState(); 
     const { selectedFilter } = get();
     
+    if (!selectedCoin || !selectedCoin.id) {
+      console.warn("No coin selected, skipping chart fetch.");
+      return; 
+    }
+    
     set({ fetchingChart: true, error: null });
 
     try {
