@@ -59,6 +59,7 @@ export const getCoinMarkets = async (req, res) => {
     );
 
     res.status(200).json(response.data);
+    console.log(response.data)
   } catch (err) {
     console.error('Error fetching coin markets:', err.message);
     res.status(500).json({ error: 'Failed to fetch coin market data' });
