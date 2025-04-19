@@ -11,7 +11,7 @@ import { useMoversStore } from "../stores/movers.store"
 
 const Dashboard = () => {
 
-    const { fetchCoins, fetchingCoins} = useCoinStore();
+    const { fetchCoins, fetchingCoins, coins} = useCoinStore();
   
     const { fetchChartData} = useChartStore()
     const {fetchMovers} = useMoversStore()
@@ -22,6 +22,8 @@ const Dashboard = () => {
       fetchCoins();
       fetchMovers()
     }, []);
+
+    console.log(coins);
   
     if (fetchingCoins) {
       return (
